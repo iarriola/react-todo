@@ -8,7 +8,7 @@ const Todo = ({setTodos, todos, todo}) => {
 
     const completedHandler = () => {
         setTodos(todos.map((item) => {
-            if(item.id == todo.id) {
+            if(item.id === todo.id) {
                 return {
                     ...item,
                     completed: !item.completed

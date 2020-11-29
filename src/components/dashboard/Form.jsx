@@ -5,7 +5,7 @@ const Form = ({inputText, todos, setTodos, setInputText, setStatus, status}) => 
 
     const inputTextHandler = (e) => {
         let value = e.target.value;
-        if(value.length == 0) {
+        if(value.length === 0) {
             console.error("Invalid input")
         } else {
             setInputText(e.target.value);
