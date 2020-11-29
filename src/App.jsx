@@ -3,8 +3,9 @@ import './App.css';
 
 import Form from "./components/Form"
 import TodoList from './components/TodoList';
+import TaskApi from './components/TaskApi';
 
-function App() {
+const App = () => {
 
   const [inputText, setInputText] =  useState("");
   const [todos, setTodos] = useState([]);
@@ -84,6 +85,8 @@ function App() {
         setTodos={setTodos}
         todos={todos}
       />
+
+      <TaskApi />
     </div>
   );
 }
