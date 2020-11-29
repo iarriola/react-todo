@@ -86,10 +86,6 @@ const DashboardPage = () => {
           todos={todos}
         />
 
-        <Link to="about" className="btn btn-primary btn-lg">
-          Learn more
-        </Link>
-
       </div>
     );
 }
