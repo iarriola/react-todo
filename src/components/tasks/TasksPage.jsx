@@ -32,7 +32,7 @@ class TasksPage extends React.Component {
             this.mainInput.current.focus();
         } else {
             this.props.actions.createTask(this.state.task);
-            this.state.task = {};
+            this.setState({task:{}});
         }
     }
 
