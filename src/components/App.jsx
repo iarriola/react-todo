@@ -1,28 +1,24 @@
 import React from "react";
 import {Route, Switch} from 'react-router-dom';
-import './App.css';
-
-import DashboardPage from './presentation/dashboard/DashboardPage';
-import AboutPage from './presentation/about/AboutPage';
-import Header from './presentation/common/Header';
+import DashboardPage from './dashboard/DashboardPage';
+import AboutPage from './about/AboutPage';
+import Header from './common/Header';
 import NotFoundPage from './NotFoundPage';
-import TaskApi from './containers/TaskApi';
+import TasksPage from './tasks/TasksPage';
 
-const App = () => {
-
+function App() {
   return (
     <div className="App">
       <Header />
       <Switch>
         <Route exact path="/" component={DashboardPage} />
         <Route path="/app" component={DashboardPage} />
+        <Route path="/tasks" component={TasksPage} />
         <Route path="/about" component={AboutPage} />
         <Route component={NotFoundPage} />
       </Switch>
-      <TaskApi />
     </div>
   );
-
 }
 
 export default App;

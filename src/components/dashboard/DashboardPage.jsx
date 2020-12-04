@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 import Form from "./Form"
 import TodoList from './TodoList';
@@ -67,7 +67,7 @@ const DashboardPage = () => {
       <div className="dashboard jumbotron">
 
         <header>
-          <h1>Notes</h1>
+          <h1>Dashboard</h1>
         </header>
   
         <Form
