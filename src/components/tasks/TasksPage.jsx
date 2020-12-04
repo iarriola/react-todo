@@ -16,7 +16,7 @@ class TasksPage extends React.Component {
     }
 
     state = {
-        task: {}
+        task: {title: ""}
     };
 
     onChangeInput = e => {
@@ -25,8 +25,19 @@ class TasksPage extends React.Component {
 
     onSubmit = e => {
         e.preventDefault();
-        this.props.actions.createTask(this.state.task);
-        this.state.task.title = "";
+
+        let title = this.state.task.title;
+        if(title === undefined || title === null || title.trim().length === 0) {
+            console.debug("Invalid input");
+            this.mainInput.current.focus();
+        } else {
+            this.props.actions.createTask(this.state.task);
+            this.state.task = {};
+        }
+    }
+
+    onClick = e => {
+        this.mainInput.current.focus();
     }
 
     componentDidMount() {
@@ -46,8 +57,8 @@ class TasksPage extends React.Component {
                     <h1>Tasks</h1>
                 </header>
                 <form onSubmit={this.onSubmit}>
-                    <input ref={this.mainInput} onChange={this.onChangeInput} value={this.state.task.title} type="text" className="todo-input" />
-                    <button className="todo-button" type="submit">
+                    <input ref={this.mainInput} onChange={this.onChangeInput} value={this.state.task.title || ''} type="text" className="todo-input" />
+                    <button ref={this.mainSubmit} onClick={this.onClick} className="todo-button" type="submit">
                         <i className="fas fa-plus-square"></i>
                     </button>
                 </form>
