@@ -46,7 +46,17 @@ class TasksPage extends React.Component {
 
     renderAllTask() {
         return this.props.tasks.map(task => (
-            <center><p key={uuid_v4()}>{task.title}</p></center>
+            <div className="todo">
+                <li key={uuid_v4()} className={"todo-item"}>{task.title}</li>
+
+                <button value={task.id} className="complete-btn">
+                    <i className="fas fa-check"></i>
+                </button>
+                
+                <button value={task.id} className="trash-btn">
+                    <i className="fas fa-trash"></i>
+                </button>
+            </div>
         ));
     }
 
@@ -62,7 +72,11 @@ class TasksPage extends React.Component {
                         <i className="fas fa-plus-square"></i>
                     </button>
                 </form>
-                { this.renderAllTask() }
+                <div className="todo-container">
+                    <ul className="todo-list">
+                            { this.renderAllTask() }
+                    </ul>
+                </div>
             </div>
 
 
